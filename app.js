@@ -1,18 +1,17 @@
-require('dotenv').config()
+require("dotenv").config();
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const path = require("path");
-const cokkieParser = require("cookie-parser");
 const userRoute = require("./routes/user");
 const blogRoute = require("./routes/blog");
 const Blog = require("./models/blog");
-const cookieParser = require("cookie-parser");
 const { checkForAuthenticationCookie } = require("./middlewares/authorization");
 const app = express();
 const PORT = process.env.PORT || 8000;
 
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect(process.env.MONGODB_URL)
   .then(() => {
     console.log("Connected to MongoDB");
   })
