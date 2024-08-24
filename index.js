@@ -18,6 +18,7 @@ mongoose
   .catch((error) => {
     console.log("Failed to connect to MongoDB: ", error);
   });
+
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
 app.use(express.urlencoded({ extended: false }));
